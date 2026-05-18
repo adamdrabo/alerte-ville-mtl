@@ -1,4 +1,3 @@
-// src/components/Header.jsx
 import { useState } from "react"
 
 function Header() {
@@ -27,7 +26,7 @@ function Header() {
         </svg>
       </a>
 
-      {/* Bouton Mon compte */}
+     
       <div className="header-compte">
         <button
           type="button"

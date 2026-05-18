@@ -4,18 +4,14 @@ Application React reproduisant la page des avis et alertes de la Ville de Montr�
 
 ## Étudiant
 
-Adam Drabo
+Drabo Adam Abdoul-Karim
 
 ## Installation et démarrage
-
-### Prérequis
-- Node.js (v18 ou plus)
-- npm
 
 ### Étapes
 
 1. Cloner le dépôt :
-   git clone <url-du-depot>
+   git clone https://github.com/adamdrabo/alerte-ville-mtl.git
    cd alertesavis
 
 2. Installer les dépendances :

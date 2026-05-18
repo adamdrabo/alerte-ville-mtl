@@ -47,7 +47,6 @@ function Accueil() {
   }
 
   const alertesFiltrees = alertes.filter((alerte) => {
-    // Filtre recherche (insensible à la casse et aux accents)
     if (filtres.recherche) {
       const recherche = normaliser(filtres.recherche);
       const titre = normaliser(alerte.titre);
@@ -98,7 +97,7 @@ function Accueil() {
 
       <div className="accueil-contenu">
 
-        {/* ── Liste ── */}
+       
         <div className="accueil-liste">
 
           {!chargement && (
