@@ -228,3 +228,4 @@ export async function getAlerteByID(id) {
 
     return null
 }
+
