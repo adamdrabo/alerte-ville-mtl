@@ -5,3 +5,6 @@ Les differentes etapes:
 3 - Lier le manifest
 4 - Placer icones rep
 5 - build + num
+
+// Initiliase le pwa 
+// npm install -D vite-plugin-pwa
