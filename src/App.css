@@ -268,20 +268,19 @@
   color: #1a1a1a;
   cursor: pointer;
   outline: none;
+  width: 100%;
+  min-height: 44px;          /* ← hauteur minimum pour iOS */
+  -webkit-appearance: none;  /* ← retire le style natif iOS */
+  appearance: none;
 }
 
 .filtres-date:focus {
   border-color: #0057a8;
 }
 
-.filtres-effacer {
-  background: none;
-  border: none;
-  font-size: 0.9rem;
-  color: #0057a8;
-  cursor: pointer;
-  padding: 0.5rem;
-  text-decoration: underline;
+.filtres-date::-webkit-date-and-time-value {
+  text-align: left;          /* ← aligne le texte à gauche sur iOS */
+  min-height: 1.5em;         /* ← force l'affichage sur iOS */
 }
 
 .filtres-effacer:hover {
@@ -601,4 +600,166 @@
     align-items: center;
     gap: 0.75rem;
   }
+}
+
+.accueil-erreur {
+  padding: 3rem 0;
+  text-align: center;
+  color: #555555;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.accueil-erreur-detail {
+  font-size: 0.85rem;
+  color: #888888;
+}
+
+
+/* ===================================
+   FILTRES ENRICHIS
+=================================== */
+.filtres-groupe {
+  margin-bottom: 1.25rem;
+}
+
+.filtres-groupe-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.filtres-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-height: 180px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.filtres-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #1a1a1a;
+  cursor: pointer;
+}
+
+.filtres-checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #1a1a1a;
+}
+
+.filtres-dates {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filtres-date-label {
+  display: block;
+  font-size: 0.85rem;
+  color: #555555;
+  margin-bottom: 0.25rem;
+}
+
+/* ===================================
+   CHIPS ACTIFS
+=================================== */
+.filtres-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #d9d9d9;
+}
+
+.filtres-chips-label {
+  font-size: 0.85rem;
+  color: #555555;
+  font-weight: 500;
+}
+
+.chip-actif {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.chip-actif:hover {
+  background-color: #333333;
+}
+
+/* ===================================
+   RESPONSIVE FILTRES ENRICHIS
+=================================== */
+@media (max-width: 768px) {
+  .filtres-dates {
+    flex-direction: column;
+  }
+
+  .filtres-options {
+    max-height: 150px;
+  }
+}
+
+
+.filtres-date-container {
+  position: relative;
+}
+
+.filtres-date-placeholder {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  color: #888888;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.filtres-date {
+  position: relative;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid #1a1a1a;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  background-color: transparent;
+  color: #1a1a1a;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+  min-height: 44px;
+  -webkit-appearance: none;
+  appearance: none;
+  z-index: 2;
+}
+
+.filtres-effacer {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  color: #0057a8;
+  cursor: pointer;
+  padding: 0.5rem;
+  text-decoration: underline;
+  width: auto;        /* ← ajoute cette ligne */
+  min-height: auto;  /* ← ajoute cette ligne */
 }

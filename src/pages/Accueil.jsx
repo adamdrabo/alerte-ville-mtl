@@ -1,4 +1,4 @@
-// src/pages/Accueil.jsx
+
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import FiltresAlertes from "../components/FiltresAlertes";
@@ -10,18 +10,23 @@ function Accueil() {
   const [chargement, setChargement] = useState(true);
   const [filtres, setFiltres] = useState({
     recherche: "",
-    arrondissement: "",
+    arrondissements:[],
     dateDebut: "",
     dateFin: "",
-    sujet: "",
+    sujets: [],
   });
+  const [erreur, setErreur] = useState(null)
 
   
   useEffect(() => {
     getAlertes().then((donnees) => {
       setAlertes(donnees);
       setChargement(false);
-    });
+    })
+    .catch((err) => {
+      setErreur(err.message)
+      setChargement(false)
+    })
   }, []);
 
  
@@ -29,13 +34,22 @@ function Accueil() {
     setFiltres((prev) => ({ ...prev, [nom]: valeur }));
   }
 
+  function handleFiltreMultiple(nom, valeur) {
+    setFiltres((prev) => {
+      const liste = prev[nom]
+
+      const nouvelleListe = liste.includes(valeur) ? liste.filter((v) => v !== valeur) : [...liste, valeur]
+      return { ...prev, [nom]: nouvelleListe }
+    })
+  }
+
   function handleEffacer() {
     setFiltres({
       recherche: "",
-      arrondissement: "",
+      arrondissements: [],
       dateDebut: "",
       dateFin: "",
-      sujet: "",
+      sujets: [],
     });
   }
 
@@ -54,8 +68,8 @@ function Accueil() {
     }
 
    
-    if (filtres.arrondissement) {
-      if (alerte.arrondissement !== filtres.arrondissement) return false;
+    if (filtres.arrondissements.length > 0) {
+      if (!filtres.arrondissements.includes(alerte.arrondissement)) return false;
     }
 
    
@@ -69,8 +83,8 @@ function Accueil() {
     }
 
     
-    if (filtres.sujet) {
-      if (alerte.sujet !== filtres.sujet) return false;
+    if (filtres.sujets.length > 0) {
+      if (!filtres.sujets.includes(alerte.sujet)) return false;
     }
 
     return true;
@@ -90,6 +104,7 @@ function Accueil() {
           <FiltresAlertes
             filtres={filtres}
             onFiltreChange={handleFiltreChange}
+            onFiltreMultiple={handleFiltreMultiple}
             onEffacer={handleEffacer}
           />
         </div>
@@ -133,6 +148,20 @@ function Accueil() {
               >
                 Réinitialiser les filtres
               </button>
+            </div>
+          )}
+
+          {erreur && (
+            <div className="acceuil-erreur">
+               <p>Impossible de charger les alertes.</p> 
+               <p className="acceuil-erreur-detail">{erreur}</p>
+               <button
+               type="button"
+               className="filtres-effacer"
+               onClick={() => window.location.reload()}
+               >
+                Réessayer
+               </button>
             </div>
           )}
 
