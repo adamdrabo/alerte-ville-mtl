@@ -1,8 +1,8 @@
 // Configuration
 
-const CACHE_STATIQUE = 'avis-mtl-v9'
-const CACHE_DYNAMIQUE = 'dynamic-v9'
-const CACHE_API = 'api-v9'
+const CACHE_STATIQUE = 'avis-mtl-v10'
+const CACHE_DYNAMIQUE = 'dynamic-v10'
+const CACHE_API = 'api-v10'
 
 const ASSETS = ['/', '/index.html', '/manifest.webmanifest'];
 
