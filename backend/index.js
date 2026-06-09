@@ -15,7 +15,7 @@ app.use(cors({
   origin: [
     'http://localhost:5173', 
     'http://localhost:4173',
-    /\.vercel\.app$/
+    'https://alerte-ville-mtl.vercel.app'
   ] 
 }))
 app.use(express.json())
