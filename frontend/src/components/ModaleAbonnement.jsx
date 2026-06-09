@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const BACKEND_URL = "http://localhost:3000"
+const BACKEND_URL = "https://avis-alertes-backend.onrender.com"
 
 function ModaleAbonnement({ onFermer }) {
 
