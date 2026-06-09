@@ -11,7 +11,13 @@ const notificationsRoutes = require('./routes/notifications')
 const app = express()
 const PORT = process.env.PORT || 3000
 
-app.use(cors({ origin: ['http://localhost:5173', 'http://localhost:4173'] }))
+app.use(cors({ 
+  origin: [
+    'http://localhost:5173', 
+    'http://localhost:4173',
+    /\.vercel\.app$/
+  ] 
+}))
 app.use(express.json())
 
 connectDB()

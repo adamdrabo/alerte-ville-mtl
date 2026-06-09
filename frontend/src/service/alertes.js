@@ -1,5 +1,5 @@
 
-const BACKEND_URL = "http://localhost:3000"
+const BACKEND_URL = "https://avis-alertes-backend.onrender.com"
 
 export async function getAlertes() {
   const reponse = await fetch(`${BACKEND_URL}/avis-alertes`)
