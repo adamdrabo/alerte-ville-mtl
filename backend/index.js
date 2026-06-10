@@ -12,12 +12,20 @@ const app = express()
 const PORT = process.env.PORT || 3000
 
 app.use(cors({ 
-  origin: [
-    'http://localhost:5173', 
-    'http://localhost:4173',
-    'https://alerte-ville-mtl.vercel.app'
-  ] 
-}))
+  origin: function(origin, callback) {
+    const originesAutorisees = [
+      'http://localhost:5173', 
+      'http://localhost:4173',
+    ];
+    
+    // Accepte toutes les URLs Vercel et localhost
+    if (!origin || originesAutorisees.includes(origin) || origin.endsWith('.vercel.app')) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS non autorisé'));
+    }
+  }
+}));
 app.use(express.json())
 
 connectDB()
