@@ -19,6 +19,15 @@ Avis-alertes-mtl/
 
 - **Frontend** : https://alerte-ville-mtl.vercel.app
 - **Backend** : https://avis-alertes-backend.onrender.com
+  Serveur Express déployé sur Render. Il expose l'API REST utilisée par le frontend
+  et gère l'envoi des notifications push via web-push.
+  
+  Routes disponibles :
+  - GET /avis-alertes → retourne les alertes normalisées de la Ville de Montréal
+  - GET /vapid-public-key → retourne la clé publique VAPID nécessaire pour s'abonner
+  - POST /subscribe → sauvegarde un abonnement push dans MongoDB
+  - POST /unsubscribe → supprime un abonnement push de MongoDB
+  - POST /send-notification → envoie une notification push à tous les appareils abonnés
 
 ## Installation et démarrage
 
@@ -61,11 +70,13 @@ VAPID_EMAIL=mailto:votre@email.com
 MONGODB_URI=votre_uri_mongodb_atlas
 ```
 
-5. Générer les clés VAPID :
+5. Générer les clés VAPID — dans le terminal, tape cette commande :
 
-```
-node -e "const webpush = require('web-push'); const keys = webpush.generateVAPIDKeys(); console.log(keys);"
-```
+   node -e "const webpush = require('web-push'); const keys = webpush.generateVAPIDKeys(); console.log(keys);"
+
+   Cette commande affiche deux clés dans le terminal :
+   - publicKey → à mettre dans VAPID_PUBLIC_KEY dans le .env
+   - privateKey → à mettre dans VAPID_PRIVATE_KEY dans le .env
 
 6. Lancer le serveur :
 
