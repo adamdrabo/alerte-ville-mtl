@@ -10,7 +10,6 @@ function Header() {
   return (
     <header className="header">
 
-     
       <a href="/" className="header-logo" aria-label="Retourner à la page d'accueil de Montréal.ca">
         <svg viewBox="0 0 184.6 39.3" xmlns="http://www.w3.org/2000/svg" aria-labelledby="logo-vdm" role="img" className="header-logo-svg">
           <title id="logo-vdm">Ville de Montréal</title>

@@ -18,7 +18,7 @@ app.use(cors({
       'http://localhost:4173',
     ];
     
-    // Accepte toutes les URLs Vercel et localhost
+    //les URLs Vercel et localhost
     if (!origin || originesAutorisees.includes(origin) || origin.endsWith('.vercel.app')) {
       callback(null, true);
     } else {

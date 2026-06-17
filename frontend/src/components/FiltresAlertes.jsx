@@ -37,7 +37,7 @@ function FiltresAlertes({ filtres, onFiltreChange, onFiltreMultiple, onEffacer }
   return (
     <div className="filtres">
 
-      {/* Recherche */}
+     
       <div className="filtres-recherche">
         <label htmlFor="recherche" className="filtres-label">
           Rechercher par mot-clé
@@ -58,10 +58,10 @@ function FiltresAlertes({ filtres, onFiltreChange, onFiltreMultiple, onEffacer }
         </div>
       </div>
 
-      {/* Filtres */}
+      
       <div className="filtres-controles">
 
-        {/* Arrondissements — sélection multiple */}
+        
         <div className="filtres-groupe">
           <p className="filtres-groupe-label">Arrondissement</p>
           <div className="filtres-options">
@@ -80,7 +80,7 @@ function FiltresAlertes({ filtres, onFiltreChange, onFiltreMultiple, onEffacer }
           </div>
         </div>
 
-        {/* Dates */}
+        
         <div className="filtres-groupe">
           <p className="filtres-groupe-label">Date</p>
           <div className="filtres-dates">
@@ -109,7 +109,7 @@ function FiltresAlertes({ filtres, onFiltreChange, onFiltreMultiple, onEffacer }
           </div>
         </div>
 
-        {/* Sujets — sélection multiple */}
+        
         <div className="filtres-groupe">
           <p className="filtres-groupe-label">Sujet</p>
           <div className="filtres-options">
@@ -128,7 +128,6 @@ function FiltresAlertes({ filtres, onFiltreChange, onFiltreMultiple, onEffacer }
           </div>
         </div>
 
-        {/* Tout effacer */}
         <button
           type="button"
           className="filtres-effacer"
@@ -139,7 +138,7 @@ function FiltresAlertes({ filtres, onFiltreChange, onFiltreMultiple, onEffacer }
 
       </div>
 
-      {/* Chips — filtres actifs */}
+      
       {(filtres.arrondissements.length > 0 || filtres.sujets.length > 0 || filtres.dateDebut || filtres.dateFin) && (
         <div className="filtres-chips">
           <span className="filtres-chips-label">Filtres actifs :</span>

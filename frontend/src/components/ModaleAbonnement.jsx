@@ -26,7 +26,7 @@ function ModaleAbonnement({ onFermer }) {
       }
 
       if (Notification.permission === "denied") {
-        setStatut("bloque")
+        setStatut("bloqué")
         return;
       }
 
