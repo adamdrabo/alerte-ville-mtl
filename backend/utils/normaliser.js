@@ -15,10 +15,9 @@ function extraireArrondissement(titre) {
         if (match) {
             return match[1].trim()
         }
-
-        return ""
     }
 
+     return ""
 }  
 
  function mapDonneApi(enregistrement) {
